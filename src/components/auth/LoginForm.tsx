@@ -1,5 +1,4 @@
 import { useState } from "react";
-//import { useAuth } from "../context/AuthContext";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +16,7 @@ export default function LoginForm() {
       await login(email, password);
       navigate("/dashboard"); // o a donde quieras llevar después del login
     } catch (error) {
-      setError("Email o contraseña incorrectos");
+      setError(`Email o contraseña incorrectos. Error:${error}`);
     }
   };
 
