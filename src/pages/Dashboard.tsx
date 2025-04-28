@@ -14,8 +14,21 @@ const Dashboard = () => {
           Cerrar sesión
         </button>
       </div>
-      <div>
-        <h2>Home</h2>
+      <div className="flex flex-col gap-4">
+        <h2 className="text-2xl">Home</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="#">Inicio</a>
+            </li>
+            <li>
+              <a href="#">Configuración</a>
+            </li>
+            <li>
+              <a href="#">Contacto</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </section>
   );
