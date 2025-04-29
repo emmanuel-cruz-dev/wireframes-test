@@ -22,6 +22,12 @@ const Dashboard = () => {
               <a href="#">Inicio</a>
             </li>
             <li>
+              <a href="#">Pacientes</a>
+            </li>
+            <li>
+              <a href="#">Agenda</a>
+            </li>
+            <li>
               <a href="#">Configuración</a>
             </li>
             <li>
