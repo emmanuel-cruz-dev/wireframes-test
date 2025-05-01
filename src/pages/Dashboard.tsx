@@ -14,28 +14,33 @@ const Dashboard = () => {
           Cerrar sesión
         </button>
       </div>
-      <div className="flex flex-col gap-4">
-        <h2 className="text-2xl">Home</h2>
-        <nav>
-          <ul>
-            <li>
-              <a href="#">Inicio</a>
-            </li>
-            <li>
-              <a href="#">Pacientes</a>
-            </li>
-            <li>
-              <a href="#">Agenda</a>
-            </li>
-            <li>
-              <a href="#">Configuración</a>
-            </li>
-            <li>
-              <a href="#">Contacto</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <main className="flex">
+        <aside className="flex flex-col gap-4">
+          <h2 className="text-2xl">Home</h2>
+          <nav>
+            <ul>
+              <li>
+                <a href="#">Inicio</a>
+              </li>
+              <li>
+                <a href="#">Pacientes</a>
+              </li>
+              <li>
+                <a href="#">Agenda</a>
+              </li>
+              <li>
+                <a href="#">Configuración</a>
+              </li>
+              <li>
+                <a href="#">Contacto</a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+        <section>
+          <h2 className="text-3xl">Calendar</h2>
+        </section>
+      </main>
     </section>
   );
 };
