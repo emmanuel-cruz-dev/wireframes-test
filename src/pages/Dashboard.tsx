@@ -1,4 +1,15 @@
 import { useAuth } from "../hooks/useAuth";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateCalendar } from "@mui/x-date-pickers";
+
+function Calendar() {
+  return (
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DateCalendar />
+    </LocalizationProvider>
+  );
+}
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -39,6 +50,7 @@ const Dashboard = () => {
         </aside>
         <section>
           <h2 className="text-3xl">Calendar</h2>
+          <Calendar />
         </section>
       </main>
     </section>
