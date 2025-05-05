@@ -93,8 +93,10 @@ const PrivateLayout = ({ children }: PrivateLayoutProps) => {
               <nav>
                 <ul className="font-medium flex flex-col gap-3">
                   <li>{state.user?.email}</li>
-                  <li className="hover:text-blue-600">
-                    <Link to="/profile">Perfil</Link>
+                  <li>
+                    <Link className="hover:text-blue-600" to="/profile">
+                      Perfil
+                    </Link>
                   </li>
                   <li>
                     <button

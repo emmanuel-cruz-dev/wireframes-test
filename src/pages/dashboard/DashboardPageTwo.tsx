@@ -1,17 +1,21 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { CalendarIcon, CheckIcon } from "../../components/ui/Icons";
+import {
+  CalendarIcon,
+  CheckIcon,
+  ClipBoardIcon,
+} from "../../components/ui/Icons";
 import PrivateLayout from "../../layouts/PrivateLayout";
 import PatientItemList from "../../components/ui/PatientItemList";
 import PatientNotes from "../../components/ui/PatientNotes";
+import MedicalHistoryList from "../../components/ui/MedicalHistoryList";
 
 function DashboardPageTwo() {
   return (
     <PrivateLayout>
-      <div className="grid grid-cols-7 gap-4">
-        <div className="col-span-2 mb-6">
+      <section className="grid grid-cols-7 gap-4">
+        <article className="col-span-2 mb-6">
           <div className="bg-white p-4 rounded-2xl">
             <h2 className="text-xl mb-6">Turnos de hoy</h2>
-
             <div className="flex justify-between px-4">
               <article className="">
                 <p className="text-blue-600 text-sm mb-2">Agendados</p>
@@ -28,9 +32,9 @@ function DashboardPageTwo() {
               </article>
             </div>
           </div>
-        </div>
-        <div className="col-span-5 flex flex-col gap-4">
-          <div className="flex justify-between items-center bg-white py-6 px-4 rounded-2xl">
+        </article>
+        <article className="col-span-5 flex flex-col gap-4">
+          <article className="flex justify-between items-center bg-white py-6 px-6 rounded-2xl">
             <h2 className="text-xl">Lucas Fernández</h2>
 
             <div className="flex gap-4">
@@ -42,18 +46,27 @@ function DashboardPageTwo() {
                 <FaChevronRight />
               </button>
             </div>
-          </div>
-          <div className="flex flex-col gap-4 bg-white p-4 rounded-2xl">
-            <div className="flex justify-between items-center">
+          </article>
+          <article className="flex flex-col bg-white py-6 rounded-2xl">
+            <header className="border-b border-gray-400 pb-6 px-6 flex justify-between items-center">
               <div className="w-8/12">
                 <PatientItemList />
               </div>
               <button className="text-blue-600 py-2 px-5 border border-black rounded-4xl hover:bg-gray-200 cursor-pointer">
                 Ver paciente
               </button>
-            </div>
-            <PatientNotes />
-            <footer className="flex justify-end gap-4 pt-6">
+            </header>
+            <article className="border-b border-gray-400 py-6 px-6">
+              <h2 className="flex items-center gap-2 text-xl font-semibold mb-4">
+                <ClipBoardIcon /> Historial clínico
+              </h2>
+              <MedicalHistoryList />
+            </article>
+
+            <article className="border-b border-gray-400 py-6 px-6">
+              <PatientNotes />
+            </article>
+            <footer className="flex justify-end gap-4 pt-6 px-6">
               <select
                 className="border border-gray-400 px-2 rounded-lg cursor-pointer"
                 name=""
@@ -67,9 +80,9 @@ function DashboardPageTwo() {
                 Llamar
               </button>
             </footer>
-          </div>
-        </div>
-      </div>
+          </article>
+        </article>
+      </section>
     </PrivateLayout>
   );
 }

@@ -44,10 +44,10 @@ const DashboardPage = () => {
                 </button>
               </div>
             </div>
-            <div className="border- border-gray-400 py-6">
+            <div className="py-6">
               <MedicalHistory children={<MedicalHistoryTable />} />
             </div>
-            <div className="border- border-gray-400 py-6">
+            <div className="py-6">
               <PatientNotes />
             </div>
           </div>

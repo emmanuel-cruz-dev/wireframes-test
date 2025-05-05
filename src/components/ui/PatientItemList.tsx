@@ -21,11 +21,6 @@ const PatientItemList = () => {
         </li>
         <li className="">44.617.293</li>
         <li className="">OSPLAD</li>
-        {/* <li className="">
-          <button className="text-blue-600 py-2 px-5 border border-black rounded-4xl hover:bg-gray-200 cursor-pointer">
-            Ver paciente
-          </button>
-        </li> */}
       </ul>
     </div>
   );
