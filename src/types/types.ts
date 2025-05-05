@@ -46,13 +46,13 @@ export interface Professional {
   specialty: string;
 }
 
-export interface Appointment {
-  id: string;
-  title: string;
-  start: string | Date;
-  end: string | Date;
-  status: "available" | "booked";
-}
+// export interface Appointment {
+//   id: string;
+//   title: string;
+//   start: string | Date;
+//   end: string | Date;
+//   status: "available" | "booked";
+// }
 
 export interface Patient {
   id: string;
@@ -63,4 +63,25 @@ export interface Patient {
   lastSession: string;
   contact: string;
   avatarUrl?: string;
+}
+
+export interface Appointment {
+  id: number;
+  patientId: number;
+  patientName: string;
+  date: string;
+  time: string;
+  duration: number;
+  status: "scheduled" | "completed" | "cancelled";
+  notes?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface AppointmentFormData {
+  patientId: number;
+  date: string;
+  time: string;
+  duration: number;
+  notes?: string;
 }

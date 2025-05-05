@@ -88,15 +88,18 @@ const PrivateLayout = ({ children }: PrivateLayoutProps) => {
             <div
               className={`${
                 isModalOpen ? "block" : "hidden"
-              } absolute z-[1] -bottom-27 right-0 bg-neutral-200 rounded-md p-4`}
+              } absolute z-[1] top-15 right-0 bg-neutral-200 rounded-md p-4`}
             >
               <nav>
-                <ul className="flex flex-col gap-3">
-                  <li className="font-medium">{state.user?.email}</li>
+                <ul className="font-medium flex flex-col gap-3">
+                  <li>{state.user?.email}</li>
+                  <li className="hover:text-blue-600">
+                    <Link to="/profile">Perfil</Link>
+                  </li>
                   <li>
                     <button
                       onClick={handleLogout}
-                      className="font-semibold cursor-pointer hover:text-blue-600"
+                      className="cursor-pointer hover:text-blue-600"
                     >
                       Cerrar Sesión
                     </button>
@@ -127,6 +130,23 @@ const PrivateLayout = ({ children }: PrivateLayoutProps) => {
                     <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
                   </svg>
                   Home
+                </Link>
+              </li>
+              <li className="">
+                <Link
+                  to="/dashboard2"
+                  className="p-2 flex items-center rounded-2xl"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="size-5"
+                  >
+                    <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+                    <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+                  </svg>
+                  Home 2
                 </Link>
               </li>
               <li className="">

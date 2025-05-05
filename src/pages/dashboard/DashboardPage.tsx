@@ -3,7 +3,6 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { ClipBoardIcon } from "../../components/ui/Icons";
 import PrivateLayout from "../../layouts/PrivateLayout";
-// import DashboardLayout from "../../layouts/PrivateLayout";
 
 const PatientItemList = () => {
   return (
