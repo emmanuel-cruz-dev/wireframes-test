@@ -8,13 +8,14 @@ import PrivateLayout from "../../layouts/PrivateLayout";
 import PatientItemList from "../../components/ui/PatientItemList";
 import PatientNotes from "../../components/ui/PatientNotes";
 import MedicalHistoryList from "../../components/ui/MedicalHistoryList";
+import CalendarMUI from "../../components/ui/CalendarMUI";
 
 function DashboardPageTwo() {
   return (
     <PrivateLayout>
       <section className="grid grid-cols-7 gap-4">
-        <article className="col-span-2 mb-6">
-          <div className="bg-white p-4 rounded-2xl">
+        <article className="col-span-2">
+          <div className="bg-white p-4 rounded-t-2xl">
             <h2 className="text-xl mb-6">Turnos de hoy</h2>
             <div className="flex justify-between px-4">
               <article className="">
@@ -32,7 +33,9 @@ function DashboardPageTwo() {
               </article>
             </div>
           </div>
+          <CalendarMUI />
         </article>
+
         <article className="col-span-5 flex flex-col gap-4">
           <article className="flex justify-between items-center bg-white py-6 px-6 rounded-2xl">
             <h2 className="text-xl">Lucas Fernández</h2>
