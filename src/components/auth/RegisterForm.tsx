@@ -1,81 +1,32 @@
-// import { useState } from "react";
-// import { useAuth } from "../../hooks/useAuth";
-// import { useNavigate } from "react-router-dom";
-
-// export default function LoginForm() {
-//   const { login } = useAuth();
-//   const navigate = useNavigate();
-
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [error, setError] = useState("");
-
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     try {
-//       await login(email, password);
-//       navigate("/dashboard"); // o a donde quieras llevar después del login
-//     } catch (error) {
-//       setError(`Email o contraseña incorrectos. Error:${error}`);
-//     }
-//   };
-
-//   return (
-//     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-//       <h1 className="text-2xl font-bold mb-6">Iniciar Sesión</h1>
-
-//       <form
-//         onSubmit={handleSubmit}
-//         className="bg-white p-8 rounded shadow-md w-80"
-//       >
-//         {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-
-//         <div className="mb-4">
-//           <label className="block text-gray-700">Email</label>
-//           <input
-//             type="email"
-//             className="w-full p-2 border rounded"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//             required
-//           />
-//         </div>
-
-//         <div className="mb-6">
-//           <label className="block text-gray-700">Contraseña</label>
-//           <input
-//             type="password"
-//             className="w-full p-2 border rounded"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//             required
-//           />
-//         </div>
-
-//         <button
-//           type="submit"
-//           className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
-//         >
-//           Ingresar
-//         </button>
-//       </form>
-//     </div>
-//   );
-// }
-
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContextAuth } from "../../hooks/auth/useContextAuth";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, state } = useContextAuth();
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const { register, state } = useContextAuth();
   const navigate = useNavigate();
+
+  const validatePasswords = () => {
+    if (password !== confirmPassword) {
+      setPasswordError("Las contraseñas no coinciden");
+      return false;
+    }
+    setPasswordError("");
+    return true;
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    await login(email, password);
+
+    if (!validatePasswords()) {
+      return;
+    }
+
+    await register(email, password);
 
     if (state.isAuthenticated) {
       navigate("/dashboard");
@@ -89,7 +40,7 @@ const LoginForm = () => {
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
-          Iniciar Sesión
+          Crear Cuenta
         </h2>
 
         {state.error && (
@@ -116,7 +67,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="password"
@@ -134,13 +85,36 @@ const LoginForm = () => {
           />
         </div>
 
+        <div className="mb-6">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="confirmPassword"
+          >
+            Confirmar Contraseña
+          </label>
+          <input
+            className={`shadow appearance-none border ${
+              passwordError ? "border-red-500" : ""
+            } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
+            id="confirmPassword"
+            type="password"
+            placeholder="******************"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+          {passwordError && (
+            <p className="text-red-500 text-xs italic">{passwordError}</p>
+          )}
+        </div>
+
         <div className="flex items-center justify-between">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full cursor-pointer"
             type="submit"
             disabled={state.isLoading}
           >
-            {state.isLoading ? "Cargando..." : "Ingresar"}
+            {state.isLoading ? "Cargando..." : "Registrarse"}
           </button>
         </div>
       </form>
@@ -148,4 +122,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
