@@ -85,3 +85,7 @@ export interface AppointmentFormData {
   duration: number;
   notes?: string;
 }
+
+export interface MedicalHistoryProps {
+  children: React.ReactNode;
+}
