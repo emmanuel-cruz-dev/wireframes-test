@@ -208,7 +208,8 @@ const PrivateLayout = ({ children }: PrivateLayoutProps) => {
 
       <footer className="bg-white py-4">
         <div className="container mx-auto px-4 text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} AURA. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Wireframe Test. Todos los derechos
+          reservados.
         </div>
       </footer>
     </div>
