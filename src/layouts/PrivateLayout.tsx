@@ -79,7 +79,11 @@ const PrivateLayout = ({ children }: PrivateLayoutProps) => {
                 </a>
               </li>
               <li className="flex items-center">
-                <button onClick={handleModal} className="cursor-pointer">
+                <button
+                  onClick={handleModal}
+                  className="text-gray-700 cursor-pointer hover:text-black"
+                  title="Cuenta"
+                >
                   <FiChevronDown size={24} />
                 </button>
               </li>
