@@ -12,6 +12,7 @@ const PrivateLayout = ({ children }: PrivateLayoutProps) => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // TODO componetizar esta función para el perfil
   const handleLogout = () => {
     logout();
     navigate("/login");
