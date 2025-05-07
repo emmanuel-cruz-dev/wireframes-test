@@ -10,7 +10,7 @@ const PublicLayout = ({ children }: PublicLayoutProps) => {
       <header className="bg-white shadow-sm py-4">
         <div className="container mx-auto px-4">
           <h1 className="text-xl font-semibold text-gray-800">
-            AURA | Administración Unificada de Registros y Atenciones
+            Figma Wireframe Test
           </h1>
         </div>
       </header>
@@ -19,7 +19,8 @@ const PublicLayout = ({ children }: PublicLayoutProps) => {
 
       <footer className="bg-white py-4 mt-auto">
         <div className="container mx-auto px-4 text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} AURA. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Wireframe Test. Todos los derechos
+          reservados.
         </div>
       </footer>
     </div>
