@@ -9,6 +9,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import ProfilePage from "../pages/profile/ProfilePage";
 import AppointmentsPage from "../pages/appointments/AppointmentsPage";
 import DashboardPageTwo from "../pages/dashboard/DashboardPageTwo";
+import PatientTabs from "../pages/patientTabs/PatientTabsPage";
 
 export const AppRoutes = () => (
   <BrowserRouter>
@@ -24,6 +25,7 @@ export const AppRoutes = () => (
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/patients" element={<PatientsPage />} />
         <Route path="/appointments" element={<AppointmentsPage />} />
+        <Route path="/patient-tabs" element={<PatientTabs />} />
       </Route>
 
       <Route path="/404" element={<NotFound />} />
