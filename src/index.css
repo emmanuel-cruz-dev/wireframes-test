@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+  --color-custom-mist: #f2f6f8;
+  --color-deep-teal: #048995;
+  --color-tropical-cyan: #06b6c6;
+  --color-electric-blue: #5685fa;
+  --color-glacial-blue: #6a93fb;
+  --color-polar-mist: #f1f5ff;
+  --color-amount-critical: #f82254;
+  --color-amount-low: #fe9b38;
+  --color-amount-medium: #f2f47d;
+  --color-amount-supplied: #06c696;
+  --color-dark-blue: #042b95;
+}
