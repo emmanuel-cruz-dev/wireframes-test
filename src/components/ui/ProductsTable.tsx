@@ -11,6 +11,7 @@ import {
   ChevronLeft,
   Check,
 } from "lucide-react";
+import { getStockColor, getStockStatus } from "../../utils/utils";
 
 interface Product {
   id: number;
@@ -189,31 +190,6 @@ const ProductsTable: React.FC = () => {
     new Set()
   );
 
-  // Obtener el estado del stock basado en el valor
-  const getStockStatus = (amount: number) => {
-    if (amount <= 5) return "critical";
-    if (amount <= 15) return "low";
-    if (amount <= 20) return "medium";
-    return "supplied";
-  };
-
-  // Obtener el color del indicador de stock
-  const getStockColor = (status: string) => {
-    switch (status) {
-      case "critical":
-        return "bg-amount-critical";
-      case "low":
-        return "bg-amount-low";
-      case "medium":
-        return "bg-amount-medium";
-      case "supplied":
-        return "bg-amount-supplied";
-      default:
-        return "bg-gray-500";
-    }
-  };
-
-  // Filtrar productos
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchesSearch = product.name
@@ -224,10 +200,8 @@ const ProductsTable: React.FC = () => {
     });
   }, [products, searchTerm]);
 
-  // Verificar si hay productos seleccionados
   const hasSelectedProducts = selectedProductIds.size > 0;
 
-  // Seleccionar/deseleccionar producto
   const toggleProductSelection = (id: number) => {
     setSelectedProductIds((prevIds) => {
       const newIds = new Set(prevIds);
@@ -240,12 +214,10 @@ const ProductsTable: React.FC = () => {
     });
   };
 
-  // Desactivar productos seleccionados
   const deactivateSelected = () => {
     setSelectedProductIds(new Set());
   };
 
-  // Eliminar productos seleccionados
   const deleteSelected = () => {
     setProducts((prev) => prev.filter((p) => !selectedProductIds.has(p.id)));
     setSelectedProductIds(new Set());
