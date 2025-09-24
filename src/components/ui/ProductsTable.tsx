@@ -9,7 +9,6 @@ import {
   ToggleRight,
   ChevronRight,
   ChevronLeft,
-  Check,
 } from "lucide-react";
 import { getStockColor, getStockStatus } from "../../utils/utils";
 import { Product } from "../../types/product";
@@ -54,6 +53,14 @@ const ProductsTable: React.FC = () => {
   const deleteSelected = () => {
     setProducts((prev) => prev.filter((p) => !selectedProductIds.has(p.id)));
     setSelectedProductIds(new Set());
+  };
+
+  const toggleAllProductsSelection = () => {
+    if (selectedProductIds.size === products.length) {
+      deactivateSelected();
+    } else {
+      setSelectedProductIds(new Set(products.map((p) => p.id)));
+    }
   };
 
   return (
@@ -144,8 +151,13 @@ const ProductsTable: React.FC = () => {
             <table className="w-full">
               <thead className="bg-polar-mist">
                 <tr className="[&>th]:px-4 [&>th]:py-3 [&>th]:text-left [&>th]:font-normal [&>th]:border-l-2 [&>th]:border-white">
-                  <th className="w-12 px-4 py-3">
-                    <Check />
+                  <th className="w-12 px-5 py-3">
+                    <input
+                      type="checkbox"
+                      checked={selectedProductIds.size === products.length}
+                      onClick={() => toggleAllProductsSelection()}
+                      className="w-4 h-4 cursor-pointer rounded focus:ring-blue-500 text-blue-600"
+                    />
                   </th>
                   <th>ID</th>
                   <th>Nombre producto</th>
