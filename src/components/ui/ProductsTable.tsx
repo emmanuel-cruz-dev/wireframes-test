@@ -57,11 +57,11 @@ const ProductsTable: React.FC = () => {
   };
 
   return (
-    <section className="w-full p-6 bg-custom-mist">
+    <section className="w-10/12 p-6 bg-custom-mist mx-auto">
       <article className="mx-auto">
         {/* Header */}
         <header className="mb-6">
-          <h1 className="text-2xl font-semibold text-dark-blue mb-4">
+          <h1 className="text-3xl font-semibold text-dark-blue mb-4">
             Productos
           </h1>
 
