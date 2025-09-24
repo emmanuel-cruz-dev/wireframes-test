@@ -41,18 +41,10 @@ export interface Professional {
   phoneNumber: string;
   country: string;
   photoUrl: string;
-  birthDate: string; // o podrías usar Date si manejas objetos Date
+  birthDate: string;
   licenseNumber: string;
   specialty: string;
 }
-
-// export interface Appointment {
-//   id: string;
-//   title: string;
-//   start: string | Date;
-//   end: string | Date;
-//   status: "available" | "booked";
-// }
 
 export interface Patient {
   id: string;
