@@ -27,7 +27,7 @@ const ProductsTable: React.FC = () => {
     return products.filter((product) => {
       const matchesSearch = product.name
         .toLowerCase()
-        .includes(searchTerm.toLowerCase());
+        .includes(searchTerm.toLowerCase().trim().replace(/\s+/g, " "));
 
       return matchesSearch;
     });
@@ -159,52 +159,65 @@ const ProductsTable: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {filteredProducts.map((product) => {
-                  const stockStatus = getStockStatus(product.amount);
-                  const stockColor = getStockColor(stockStatus);
-                  const isSelected = selectedProductIds.has(product.id);
-
-                  return (
-                    <tr
-                      key={product.id}
-                      className="hover:bg-gray-50 transition-colors border-b-2 border-gray-200 last:border-none"
+                {filteredProducts.length === 0 ? (
+                  <tr className="bg-white">
+                    <td
+                      colSpan={7}
+                      className="text-center text-gray-400 py-6 px-4"
                     >
-                      <td className="px-5 py-3">
-                        <input
-                          type="checkbox"
-                          checked={isSelected}
-                          onChange={() => toggleProductSelection(product.id)}
-                          className="w-4 h-4 cursor-pointer rounded focus:ring-blue-500 text-blue-600"
-                        />
-                      </td>
-                      <td className="px-4 text-sm text-gray-900 border-l-2 border-gray-200">
-                        {product.id}
-                      </td>
-                      <td className="px-4 text-sm border-l-2 border-gray-200">
-                        {product.name}
-                      </td>
-                      <td className="px-4 text-sm border-l-2 border-gray-200">
-                        {product.category}
-                      </td>
-                      <td className="px-4 text-sm border-l-2 border-gray-200">
-                        {product.amount}
-                      </td>
-                      <td>
-                        <div
-                          className={`w-4 h-4 rounded-full mx-auto ${stockColor}`}
-                        ></div>
-                      </td>
-                      <td className="px-4 text-sm border-l-2 border-gray-200">
-                        $ {product.sellPrice}
-                      </td>
-                      <td className="text-center border-l-2 border-gray-200 w-fit">
-                        <button className="py-3 text-glacial-blue hover:text-blue-500 transition-colors cursor-pointer">
-                          <Edit size={24} />
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
+                      {searchTerm.length > 0
+                        ? `No se encontraron resultados que coincidan con '${searchTerm}'`
+                        : "No hay productos en la lista"}
+                    </td>
+                  </tr>
+                ) : (
+                  filteredProducts.map((product) => {
+                    const stockStatus = getStockStatus(product.amount);
+                    const stockColor = getStockColor(stockStatus);
+                    const isSelected = selectedProductIds.has(product.id);
+
+                    return (
+                      <tr
+                        key={product.id}
+                        className="hover:bg-gray-50 transition-colors border-b-2 border-gray-200 last:border-none"
+                      >
+                        <td className="px-5 py-3">
+                          <input
+                            type="checkbox"
+                            checked={isSelected}
+                            onChange={() => toggleProductSelection(product.id)}
+                            className="w-4 h-4 cursor-pointer rounded focus:ring-blue-500 text-blue-600"
+                          />
+                        </td>
+                        <td className="px-4 text-sm text-gray-900 border-l-2 border-gray-200">
+                          {product.id}
+                        </td>
+                        <td className="px-4 text-sm border-l-2 border-gray-200">
+                          {product.name}
+                        </td>
+                        <td className="px-4 text-sm border-l-2 border-gray-200">
+                          {product.category}
+                        </td>
+                        <td className="px-4 text-sm border-l-2 border-gray-200">
+                          {product.amount}
+                        </td>
+                        <td>
+                          <div
+                            className={`w-4 h-4 rounded-full mx-auto ${stockColor}`}
+                          ></div>
+                        </td>
+                        <td className="px-4 text-sm border-l-2 border-gray-200">
+                          $ {product.sellPrice}
+                        </td>
+                        <td className="text-center border-l-2 border-gray-200 w-fit">
+                          <button className="py-3 text-glacial-blue hover:text-blue-500 transition-colors cursor-pointer">
+                            <Edit size={24} />
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })
+                )}
               </tbody>
             </table>
           </article>
