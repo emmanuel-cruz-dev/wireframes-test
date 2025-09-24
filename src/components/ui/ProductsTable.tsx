@@ -166,8 +166,8 @@ const ProductsTable: React.FC = () => {
                       className="text-center text-gray-400 py-6 px-4"
                     >
                       {searchTerm.length > 0
-                        ? `No se encontraron resultados que coincidan con '${searchTerm}'`
-                        : "No hay productos en la lista"}
+                        ? `No se encontraron resultados que coincidan con '${searchTerm}'.`
+                        : "No hay productos en la lista."}
                     </td>
                   </tr>
                 ) : (
