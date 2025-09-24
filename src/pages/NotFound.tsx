@@ -6,14 +6,6 @@ export default function NotFound() {
   const [countdown, setCountdown] = useState(10);
 
   useEffect(() => {
-    // const timer =
-    //   countdown > 0 && setInterval(() => setCountdown(countdown - 1), 1000);
-
-    // if (countdown === 0) {
-    //   navigate("/");
-    // }
-
-    // return () => clearInterval(timer);
     let timer: number | undefined;
 
     if (countdown > 0) {
