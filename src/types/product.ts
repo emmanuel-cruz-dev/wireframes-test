@@ -4,7 +4,7 @@ export interface Product {
   category: string;
   amount: number;
   sellPrice: number;
-  weigth: number; // weight está mal escrito, viene así de la base de datos
+  weight: number;
   buyDate: string;
   expiration: string;
   supplierNames: string[];
