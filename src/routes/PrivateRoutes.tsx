@@ -1,15 +1,5 @@
-// import { Navigate, Outlet } from "react-router-dom";
-// import { useAuth } from "../hooks/useAuth";
-
-// export const PrivateRoutes = () => {
-//   const { isAuthenticated } = useAuth();
-
-//   return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
-// };
-
 import { Navigate, Outlet } from "react-router-dom";
 import { useContextAuth } from "../hooks/auth/useContextAuth";
-//import { useContextAuth } from "../features/auth/hooks/useContextAuth";
 
 const PrivateRoutes = () => {
   const { state } = useContextAuth();
