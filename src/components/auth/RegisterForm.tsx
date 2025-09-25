@@ -34,7 +34,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <article className="w-full max-w-md mx-auto">
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -108,7 +108,7 @@ const RegisterForm = () => {
           )}
         </div>
 
-        <div className="flex items-center justify-between">
+        <footer className="flex items-center justify-between">
           <button
             className="bg-neutral-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full cursor-not-allowed"
             type="submit"
@@ -117,9 +117,9 @@ const RegisterForm = () => {
           >
             {state.isLoading ? "Cargando..." : "Registrarse"}
           </button>
-        </div>
+        </footer>
       </form>
-    </div>
+    </article>
   );
 };
 
