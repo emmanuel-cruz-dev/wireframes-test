@@ -133,31 +133,6 @@ const clinicalHistoryData: ClinicalHistoryData = {
   ],
 };
 
-// const patientDB: PatientDB = {
-//   id: 123,
-//   name: "Olivia",
-//   lastName: "Curuchet",
-//   phoneNumber: "+54 11 6789 2345",
-//   birthDate: "12 / 05 / 2016",
-//   dni: "46.237.981",
-//   email: "paula.curuchet@gmail.com",
-//   hasInsurance: true,
-//   insuranceName: "OSDE",
-//   address: "Av. San Martín 3500, Quilmes, Buenos Aires",
-//   tutorName: "Paula Curuchet",
-//   relationToPatient: "Madre",
-//   professionalIds: [123123],
-//   level: "Primario - 2° Grado",
-//   shift: "Mañana",
-//   schoolId: 544123,
-
-//   age: 8,
-//   genre: "Femenino",
-//   insurancePlan: "210",
-//   membershipNumber: "156150-06",
-// };
-
-// Componente principal
 export default function PatientTabs() {
   const [activeTab, setActiveTab] = useState<TabId>("paciente");
 
