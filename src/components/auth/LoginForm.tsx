@@ -18,7 +18,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <article className="w-full max-w-md mx-auto">
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -69,7 +69,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <div className="flex items-center justify-between">
+        <footer className="flex items-center justify-between">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full cursor-pointer"
             type="submit"
@@ -77,9 +77,9 @@ const LoginForm = () => {
           >
             {state.isLoading ? "Cargando..." : "Ingresar"}
           </button>
-        </div>
+        </footer>
       </form>
-    </div>
+    </article>
   );
 };
 
